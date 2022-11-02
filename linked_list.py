@@ -69,7 +69,12 @@ class LinkedList:
             item = self.head
             for _ in range(index):
                 item = item.next
-            return item.value
+            return item
+
+    def set_value(self, index, value):  # sets the node at the given index to the given value
+        item = self.get(index)
+        if item:
+            item.value = value
 
 
 linked_list = LinkedList(1)
@@ -77,7 +82,6 @@ linked_list.append(4)
 linked_list.append(5)
 linked_list.prepend(8)
 
-print(linked_list.get(3))
+linked_list.set_value(0, 3)
 
-
-# linked_list.print_list()
+linked_list.print_list()
