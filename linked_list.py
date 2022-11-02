@@ -51,9 +51,22 @@ class LinkedList:
         self.head = new_node
         self.length += 1
 
+    def pop_first(self):  # removes and returns the item at the head of the list
+        if self.length == 0:
+            return None
+        item = self.head
+        self.head = self.head.next
+        item.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.tail = None
+        return item
+
 
 linked_list = LinkedList(1)
-linked_list.pop()
-linked_list.prepend(5)
+linked_list.append(4)
+linked_list.append(5)
+
+linked_list.pop_first()
 
 linked_list.print_list()
