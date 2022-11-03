@@ -95,10 +95,26 @@ class LinkedList:
         self.length += 1
         return True
 
+    def remove(self, index):  # removes the node at a given index
+        if index >= self.length or index < 0:
+            return None
+        if index == 0:
+            return self.pop_first()
+        elif index == self.length - 1:
+            return self.pop()
+        pre = self.get(index - 1)
+        item = pre.next
+        pre.next = item.next
+        item.next = None
+        self.length -= 1
+        return item
+
 
 linked_list = LinkedList(1)
 linked_list.append(4)
+linked_list.append(2)
+linked_list.append(8)
 
-linked_list.insert(1, 3)
+linked_list.remove(2)
 
 linked_list.print_list()
