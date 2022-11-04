@@ -113,7 +113,7 @@ class LinkedList:
         temp = self.head
         self.head = self.tail
         self.tail = temp
-        post = temp.next
+        post = self.head
         pre = None
         for _ in range(self.length):
             post = temp.next
@@ -123,9 +123,7 @@ class LinkedList:
 
 
 linked_list = LinkedList(1)
-linked_list.append(4)
-linked_list.append(2)
-linked_list.append(8)
+linked_list.pop()
 
 linked_list.reverse()
 
