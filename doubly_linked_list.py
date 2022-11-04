@@ -29,8 +29,25 @@ class DoublyLinkedList:
         self.length += 1
         return True
 
+    def pop(self):  # removes and returns the node at the tail of the list
+        if self.length == 0:
+            return None
+        item = self.tail
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.tail = self.tail.previous
+            self.tail.next = None
+            item.previous = None
+        self.length -= 1
+        return item
+
 
 doubly_linked_list = DoublyLinkedList(5)
-doubly_linked_list.append(4)
+doubly_linked_list.append(3)
+
+doubly_linked_list.pop()
+
 
 doubly_linked_list.print_list()
