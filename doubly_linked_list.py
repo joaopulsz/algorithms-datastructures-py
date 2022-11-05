@@ -54,12 +54,26 @@ class DoublyLinkedList:
         self.length += 1
         return True
 
+    def pop_first(self):  # removes and returns the node at the start of the list
+        if self.length == 0:
+            return None
+        item = self.head
+        self.head = self.head.next
+        if self.head:
+            self.head.previous = None
+        item.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.tail = None
+        return item
+
 
 doubly_linked_list = DoublyLinkedList(5)
 doubly_linked_list.append(3)
-doubly_linked_list.pop()
-doubly_linked_list.pop()
 
 doubly_linked_list.prepend(4)
+
+doubly_linked_list.pop_first()
+doubly_linked_list.pop_first()
 
 doubly_linked_list.print_list()
