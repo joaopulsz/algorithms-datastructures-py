@@ -24,7 +24,7 @@ class Stack:
         self.height += 1
 
     def pop(self):  # removes and returns the node at the top of the stack
-        if stack.height == 0:
+        if self.height == 0:
             return None
         item = self.top
         self.top = item.next
