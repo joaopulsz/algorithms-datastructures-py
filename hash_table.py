@@ -18,6 +18,14 @@ class HashTable:
             self.data_map[index] = []
         self.data_map[index].append([key, value])
 
+    def get_item(self, key):
+        index = self.__hash(key)
+        if self.data_map[index] != None:
+            for i in range(len(self.data_map[index])):
+                if self.data_map[index][i][0] == key:
+                    return self.data_map[index][i][1]
+        return None
+
 
 hash_table = HashTable()
 
@@ -25,4 +33,7 @@ hash_table.set_item('guitars', 3)
 hash_table.set_item('pianos', 1)
 hash_table.set_item('flutes', 6)
 
-hash_table.print_table()
+print(hash_table.get_item('guitars'))
+print(hash_table.get_item('drums'))
+
+# hash_table.print_table()
