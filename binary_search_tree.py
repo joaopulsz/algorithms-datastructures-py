@@ -29,12 +29,26 @@ class BinarySearchTree:
                     return True
                 i = i.left
 
+    def contains(self, value):
+        i = self.root
+        while i is not None:
+            if value > i.value:
+                i = i.right
+            elif value < i.value:
+                i = i.left
+            else:
+                return True
+        return False
+
 
 tree = BinarySearchTree()
 tree.insert(4)
 tree.insert(2)
 tree.insert(6)
+tree.insert(7)
+tree.insert(3)
+tree.insert(5)
 
-print(tree.root.value)
-print(tree.root.right.value)
-print(tree.root.left.value)
+print(tree.contains(3))
+print(tree.contains(5))
+print(tree.contains(10))
