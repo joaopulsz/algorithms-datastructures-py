@@ -65,15 +65,3 @@ class BinarySearchTree:
         while current_node.left is not None:
             current_node = current_node.left
         return current_node
-
-
-tree = BinarySearchTree()
-tree.insert(4)
-tree.insert(2)
-tree.insert(6)
-tree.insert(7)
-tree.insert(3)
-tree.insert(5)
-
-print(tree.minimum_value_node(tree.root).value)
-print(tree.minimum_value_node(tree.root.right).value)

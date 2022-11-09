@@ -17,7 +17,7 @@ class LinkedList:
             print(i.value)
             i = i.next
 
-    def append(self, value):  # adds a node to the end o the list
+    def append(self, value):
         new_node = Node(value)
         if self.tail:
             self.tail.next = new_node
@@ -27,7 +27,7 @@ class LinkedList:
         self.length += 1
         return True
 
-    def pop(self):  # removes and returns the node at the tail of the list
+    def pop(self):
         if self.length == 0:
             return None
         item = self.head
@@ -43,7 +43,7 @@ class LinkedList:
             self.tail = None
         return item
 
-    def prepend(self, value):  # adds a new node to the start of the list
+    def prepend(self, value):
         new_node = Node(value)
         if self.length != 0:
             new_node.next = self.head
@@ -53,7 +53,7 @@ class LinkedList:
         self.length += 1
         return True
 
-    def pop_first(self):  # removes and returns the node at the head of the list
+    def pop_first(self):
         if self.length == 0:
             return None
         item = self.head
@@ -64,7 +64,7 @@ class LinkedList:
             self.tail = None
         return item
 
-    def get(self, index):  # returns the node at the given index
+    def get(self, index):
         if index >= self.length or index < 0:
             return None
         else:
@@ -73,14 +73,14 @@ class LinkedList:
                 item = item.next
             return item
 
-    def set_value(self, index, value):  # sets the node at the given index to the given value
+    def set_value(self, index, value):
         item = self.get(index)
         if item:
             item.value = value
             return True
         return False
 
-    def insert(self, index, value):  # inserts a new node at the given index position
+    def insert(self, index, value):
         new_node = Node(value)
         if index > self.length or index < 0:
             return False
@@ -95,7 +95,7 @@ class LinkedList:
         self.length += 1
         return True
 
-    def remove(self, index):  # removes the node at a given index
+    def remove(self, index):
         if index >= self.length or index < 0:
             return None
         if index == 0:
@@ -109,7 +109,7 @@ class LinkedList:
         self.length -= 1
         return item
 
-    def reverse(self):  # reverses the order of the nodes in the list
+    def reverse(self):
         temp = self.head
         self.head = self.tail
         self.tail = temp
@@ -120,11 +120,3 @@ class LinkedList:
             temp.next = pre
             pre = temp
             temp = post
-
-
-linked_list = LinkedList(1)
-linked_list.pop()
-
-linked_list.reverse()
-
-linked_list.print_list()

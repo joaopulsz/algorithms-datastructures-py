@@ -17,7 +17,7 @@ class Queue:
             print(i.value)
             i = i.next
 
-    def enqueue(self, value):  # adds a new node to the end of the queue
+    def enqueue(self, value):
         new_node = Node(value)
         if self.length == 0:
             self.first = new_node
@@ -27,7 +27,7 @@ class Queue:
             self.last = new_node
         self.length += 1
 
-    def dequeue(self):  # removes and returns the first item in the queue
+    def dequeue(self):
         if self.length == 0:
             return None
         item = self.first
@@ -39,12 +39,3 @@ class Queue:
             item.next = None
         self.length -= 1
         return item
-
-
-queue = Queue(1)
-queue.enqueue(2)
-queue.enqueue(3)
-
-queue.dequeue()
-
-queue.print_queue()

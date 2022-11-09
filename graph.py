@@ -33,19 +33,3 @@ class Graph:
             self.adj_list[edge].remove(vertex)
         self.adj_list.pop(vertex)
         return True
-
-
-graph = Graph()
-
-graph.add_vertex("J")
-graph.add_vertex("O")
-graph.add_vertex("A")
-graph.add_vertex("P")
-
-graph.add_edge("O", "J")
-graph.add_edge("O", "A")
-graph.add_edge("A", "J")
-
-graph.remove_vertex("A")
-
-graph.print_graph()

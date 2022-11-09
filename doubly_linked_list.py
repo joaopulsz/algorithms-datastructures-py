@@ -18,7 +18,7 @@ class DoublyLinkedList:
             print(i.value)
             i = i.next
 
-    def append(self, value):  # adds a node to the end o the list
+    def append(self, value):
         new_node = Node(value)
         if self.tail:
             new_node.previous = self.tail
@@ -29,7 +29,7 @@ class DoublyLinkedList:
         self.length += 1
         return True
 
-    def pop(self):  # removes and returns the node at the tail of the list
+    def pop(self):
         if self.length == 0:
             return None
         item = self.tail
@@ -43,7 +43,7 @@ class DoublyLinkedList:
         self.length -= 1
         return item
 
-    def prepend(self, value):  # inserts new node to the start of the list
+    def prepend(self, value):
         new_node = Node(value)
         if self.length != 0:
             self.head.previous = new_node
@@ -54,7 +54,7 @@ class DoublyLinkedList:
         self.length += 1
         return True
 
-    def pop_first(self):  # removes and returns the node at the start of the list
+    def pop_first(self):
         if self.length == 0:
             return None
         item = self.head
@@ -67,7 +67,7 @@ class DoublyLinkedList:
             self.tail = None
         return item
 
-    def get(self, index):  # returns the node at the given index
+    def get(self, index):
         if index >= self.length or index < 0:
             return None
         else:
@@ -81,14 +81,14 @@ class DoublyLinkedList:
                     item = item.previous
             return item
 
-    def set_value(self, index, value):  # sets the node at the given index to the given value
+    def set_value(self, index, value):
         item = self.get(index)
         if item:
             item.value = value
             return True
         return False
 
-    def insert(self, index, value):  # inserts a new node at the given index position
+    def insert(self, index, value):
         new_node = Node(value)
         if index > self.length or index < 0:
             return False
@@ -105,7 +105,7 @@ class DoublyLinkedList:
         self.length += 1
         return True
 
-    def remove(self, index):  # removes the node at the given index
+    def remove(self, index):
         if index >= self.length or index < 0:
             return None
         if index == 0:
@@ -119,13 +119,3 @@ class DoublyLinkedList:
         item.previous = None
         self.length -= 1
         return item
-
-
-doubly_linked_list = DoublyLinkedList(5)
-doubly_linked_list.append(3)
-doubly_linked_list.append(6)
-doubly_linked_list.append(4)
-
-doubly_linked_list.remove(1)
-
-doubly_linked_list.print_list()
