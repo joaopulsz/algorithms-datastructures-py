@@ -26,6 +26,14 @@ class Graph:
         self.adj_list[vertex2].remove(vertex1)
         return True
 
+    def remove_vertex(self, vertex):
+        if vertex not in self.adj_list.keys():
+            return False
+        for edge in self.adj_list[vertex]:
+            self.adj_list[edge].remove(vertex)
+        self.adj_list.pop(vertex)
+        return True
+
 
 graph = Graph()
 
@@ -34,13 +42,10 @@ graph.add_vertex("O")
 graph.add_vertex("A")
 graph.add_vertex("P")
 
-print(graph.add_edge("O", "J"))
-print(graph.add_edge("O", "A"))
-print(graph.add_edge("A", "J"))
+graph.add_edge("O", "J")
+graph.add_edge("O", "A")
+graph.add_edge("A", "J")
 
-graph.print_graph()
-
-print(graph.remove_edge("O", "J"))
-print(graph.remove_edge("J", "P"))
+graph.remove_vertex("A")
 
 graph.print_graph()
