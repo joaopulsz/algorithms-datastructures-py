@@ -29,6 +29,27 @@ class BinarySearchTree:
                     return True
                 i = i.left
 
+    def delete_node(self, current_node, value):
+        if current_node is None:
+            return None
+        elif value < current_node.value:
+            current_node.left = self.delete_node(current_node.left, value)
+        elif value > current_node.value:
+            current_node.right = self.delete_node(current_node.right, value)
+        else:
+            if not current_node.left and not current_node.right:
+                current_node = None
+            elif not current_node.left:
+                current_node = current_node.right
+            elif not current_node.right:
+                current_node = current_node.left
+            else:
+                item = self.minimum_value_node(current_node.right)
+                current_node.value = item.value
+                current_node.right = self.delete_node(
+                    current_node.right, item.value)
+        return current_node
+
     def contains(self, value):
         i = self.root
         while i is not None:
