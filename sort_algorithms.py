@@ -21,4 +21,15 @@ def selection_sort(my_list):
     return my_list
 
 
-print(selection_sort([4, 6, 8, 11, 43, 1, 2, 5]))
+def insertion_sort(my_list):
+    for i in range(1, len(my_list)):
+        item = my_list[i]
+        j = i - 1
+        while item < my_list[j] and j > -1:
+            my_list[j + 1] = my_list[j]
+            my_list[j] = item
+            j -= 1
+    return my_list
+
+
+print(insertion_sort([4, 6, 8, 11, 43, 1, 2, 5]))
