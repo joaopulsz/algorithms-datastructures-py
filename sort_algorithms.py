@@ -32,4 +32,27 @@ def insertion_sort(my_list):
     return my_list
 
 
-print(insertion_sort([4, 6, 8, 11, 43, 1, 2, 5]))
+def merge(list1, list2):  # helper func for the following sort algorithm
+    combined_list = []
+    i = 0
+    j = 0
+    while i < len(list1) and j < len(list2):
+        if list1[i] < list2[j]:
+            combined_list.append(list1[i])
+            i += 1
+        else:
+            combined_list.append(list2[j])
+            j += 1
+    while i < len(list1):
+        combined_list.append(list1[i])
+        i += 1
+    while j < len(list2):
+        combined_list.append(list2[j])
+        j += 1
+    return combined_list
+
+
+# def merge_sort(my_list):
+
+
+print(merge([1, 3, 6, 7], [2, 4, 5, 8]))
