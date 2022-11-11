@@ -52,7 +52,13 @@ def merge(list1, list2):  # helper func for the following sort algorithm
     return combined_list
 
 
-# def merge_sort(my_list):
+def merge_sort(my_list):  # recursively divides a list in half until there are striclty 1 item lists, and then sorts and reunites them
+    if len(my_list) == 1:
+        return my_list
+    middle_index = int(len(my_list) / 2)
+    first_half = merge_sort(my_list[:middle_index])
+    second_half = merge_sort(my_list[middle_index:])
+    return merge(first_half, second_half)
 
 
-print(merge([1, 3, 6, 7], [2, 4, 5, 8]))
+print(merge_sort([9, 1, 7, 3, 6, 5, 10, 8, 2, 4]))
