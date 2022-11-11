@@ -61,4 +61,17 @@ def merge_sort(my_list):  # recursively divides a list in half until there are s
     return merge(first_half, second_half)
 
 
-print(merge_sort([9, 1, 7, 3, 6, 5, 10, 8, 2, 4]))
+def swap(my_list, index1, index2):  # helper func for the following helper func
+    item = my_list[index1]
+    my_list[index1] = my_list[index2]
+    my_list[index2] = item
+
+
+def pivot(my_list, pivot_index, end_index):  # helper func for the following sort algorithm
+    swap_index = pivot_index
+    for i in range(pivot_index + 1, end_index + 1):
+        if my_list[i] < my_list[pivot_index]:
+            swap_index += 1
+            swap(my_list, swap_index, i)
+    swap(my_list, pivot_index, swap_index)
+    return swap_index
