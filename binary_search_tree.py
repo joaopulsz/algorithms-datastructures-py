@@ -79,4 +79,38 @@ class BinarySearchTree:
             if current_node.right is not None:
                 queue.append(current_node.right)
         return results
-            
+    
+    # depth first search algorithms:
+
+    def dfs_pre_order(self): # pushes value to results list and then goes left and right
+        results = []
+        def traverse(current_node):
+            results.append(current_node.value)
+            if current_node.left is not None:
+                traverse(current_node.left)
+            if current_node.right is not None:
+                traverse(current_node.right)
+        traverse(self.root)
+        return results
+
+    def dfs_post_order(self): # goes left and right and then pushes value to results list
+        results = []
+        def traverse(current_node):
+            if current_node.left is not None:
+                traverse(current_node.left)
+            if current_node.right is not None:
+                traverse(current_node.right)
+            results.append(current_node.value)
+        traverse(self.root)
+        return results
+
+    def dfs_in_order(self): # goes left, pushes value to results list, and then goes right
+        results = []
+        def traverse(current_node):
+            if current_node.left is not None:
+                traverse(current_node.left)
+            results.append(current_node.value)
+            if current_node.right is not None:
+                traverse(current_node.right)
+        traverse(self.root)
+        return results
